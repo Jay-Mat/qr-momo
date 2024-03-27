@@ -6,6 +6,7 @@ pipeline {
     }
     environment {
         CI = false //do not treat errors as warnings
+        SONARSCANNER = "sonarscanner"
     }
 
     stages {
@@ -25,5 +26,19 @@ pipeline {
                 sh 'docker push  jaymath237/qr-momo-1'
             }
         }
-    }
+
+        stage('Sonar Analysis') {
+            environment {
+                scannerHome = tool "$(SONARSCANNER)" 
+            }
+            steps {
+                withSonarQubeEnv('${SONARSCANNER}') {
+                    sh ''' '''
+                    
+}
+            }
+        }
+
+
+}
 }
