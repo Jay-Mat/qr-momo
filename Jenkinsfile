@@ -30,9 +30,6 @@ pipeline {
         stage('Sonar Analysis') {
             environment {
                 scannerHome = tool "${SONARSCANNER}";
-                withSonarQubeEnv('My SonarQube Server', envOnly: true) {
-  println ${env.SONAR_HOST_URL} 
-}
             }
             steps {
                 withSonarQubeEnv('${SONARSCANNER}') {
