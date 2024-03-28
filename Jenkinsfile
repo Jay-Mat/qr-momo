@@ -6,7 +6,7 @@ pipeline {
     }
     environment {
         CI = false //do not treat errors as warnings
-        SONARSCANNER = "sonarscanner"
+        SONARSCANNER = "SonarScanner 4.0"
     }
 
     stages {
@@ -29,7 +29,10 @@ pipeline {
 
         stage('Sonar Analysis') {
             environment {
-                scannerHome = tool "${SONARSCANNER}" 
+                scannerHome = tool "${SONARSCANNER}";
+                withSonarQubeEnv('My SonarQube Server', envOnly: true) {
+  println ${env.SONAR_HOST_URL} 
+}
             }
             steps {
                 withSonarQubeEnv('${SONARSCANNER}') {
