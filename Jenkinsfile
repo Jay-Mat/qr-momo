@@ -32,7 +32,7 @@ pipeline {
                 scannerHome = tool "SonarScanner";
             }
             steps {
-                withSonarQubeEnv('${SONARSCANNER}') {
+                withSonarQubeEnv('SonarScanner') {
                     
 }
             }
