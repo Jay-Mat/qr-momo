@@ -6,7 +6,7 @@ pipeline {
     }
     environment {
         CI = false //do not treat errors as warnings
-        SONARSCANNER = "SonarScanner 4.0"
+        SONARSCANNER = "SonarScanner 4.0.0.1744"
     }
 
     stages {
