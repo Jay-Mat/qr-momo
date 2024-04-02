@@ -22,7 +22,7 @@ pipeline {
         stage('Deployment') {
             steps {
                 sh 'docker tag qr-momo-1:${BUILD_NUMBER} jaymath237/qr-momo-1'
-                sh 'docker login -u jaymath237 -p ${PASSWORD} docker.io'
+                sh 'docker login -u ${USERNAME} -p ${PASSWORD} docker.io'
                 sh 'docker push  jaymath237/qr-momo-1'
             }
         }
